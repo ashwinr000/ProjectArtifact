@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 
 # random comment to test git out
+# update 2
 
 img = cv2.imread("/Users/ashwinr/Downloads/testartifact.jpg", 100)
 grayscale = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
