@@ -14,6 +14,8 @@ cv2.imshow("Hello", blur)
 cv2.waitKey(0)
 '''
 
+y = 1
+
 """""
 line of code for Eric's end, uncomment when coding"
 
