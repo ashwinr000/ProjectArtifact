@@ -19,3 +19,5 @@ line of code for Eric's end, uncomment when coding"
 
 """""
 # img = cv2.imread("/Users/erichu/Downloads/8d4bb900b3026aac0024badd9ee8d28e--painted-gourds-french-revolution.jpg", 100)
+
+x = 0
