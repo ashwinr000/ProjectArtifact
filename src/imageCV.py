@@ -13,7 +13,8 @@ img = timg
 deviation = 0
 for x in range(len(img)):
     for y in range(len(img[0])):
-        deviation += (abs(int(img[x, y, 0]) - int(img[x, y, 1])) + (abs(int(img[x, y, 1]) - int(img[x, y, 2]))) / 2)
+        deviation += (abs(int(img[x, y, 0]) - int(img[x, y, 1])) +
+                      (abs(int(img[x, y, 1]) - int(img[x, y, 2]))) / 2)
 deviation = deviation / (len(img) * len(img[0]))
 print deviation
 
@@ -25,9 +26,9 @@ for x in range(len(img)):
             img[x, y, 1] = 0
             img[x, y, 2] = 0
 
-#grayscale = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-#blur = cv2.blur(grayscale, (5, 5))
-#ret, thresh = cv2.threshold(grayscale, 160, 255, cv2.THRESH_BINARY)
+# grayscale = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+# blur = cv2.blur(grayscale, (5, 5))
+# ret, thresh = cv2.threshold(grayscale, 160, 255, cv2.THRESH_BINARY)
 
 # Convert from rgb to hsv
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -39,20 +40,22 @@ mask = cv2.inRange(hsv, lower, upper)
 
 # Find contours in masked image
 img_cnt, contours, hierarchy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-#cv2.drawContours(img_cnt, contours, -1, (0, 0, 0), 10)
+# cv2.drawContours(img_cnt, contours, -1, (0, 0, 0), 10)
 
 # Draw only the largest rectangle boundary (which will be the image)
 rectangle = []
 max = 0
 for cnt in contours:
-    (x,y,w,h) = cv2.boundingRect(cnt)
+    (x, y, w, h) = cv2.boundingRect(cnt)
     if w * h > max:
         max = w * h
         rectangle = [x, y, w, h]
-cv2.rectangle(final, (rectangle[0], rectangle[1]), (rectangle[0] + rectangle[2], rectangle[1] + rectangle[3]), (200, 200, 100), 2)
+cv2.rectangle(final, (rectangle[0], rectangle[1]), (rectangle[0] +
+                                                    rectangle[2], rectangle[1] + rectangle[3]), (200, 200, 100), 2)
 
 # Crop the image upon the rectangle
-newimg = final[(rectangle[1]):(rectangle[1] + rectangle[3]), (rectangle[0]):(rectangle[0] + rectangle[2])]
+newimg = final[(rectangle[1]):(rectangle[1] + rectangle[3]),
+               (rectangle[0]):(rectangle[0] + rectangle[2])]
 
 cv2.imshow("Hello", newimg)
 cv2.waitKey(0)
