@@ -5,7 +5,7 @@ import numpy as np
 """
 This is Ashwin's side of the code
 """
-timg = cv2.imread("<insert file path>", 10)
+timg = cv2.imread("/Users/ashwinr/Downloads/test17.jpg", 10)
 final = cv2.cvtColor(timg, cv2.COLOR_BGR2GRAY)
 img = timg
 
@@ -57,7 +57,7 @@ cv2.rectangle(final, (rectangle[0], rectangle[1]), (rectangle[0] +
 newimg = final[(rectangle[1]):(rectangle[1] + rectangle[3]),
                (rectangle[0]):(rectangle[0] + rectangle[2])]
 
-cv2.imshow("Hello", newimg)
+cv2.imshow("Hello", final)
 cv2.waitKey(0)
 
 
