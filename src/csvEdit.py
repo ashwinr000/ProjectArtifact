@@ -14,4 +14,5 @@ for i in range(17):
     #print(filePath)
     img = cv2.imread(filePath, 10)
     #img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    writer.writerow([len(img), len(img[0])])
+    for x in range(len(img)):
+        writer.writerow([img[x]])
