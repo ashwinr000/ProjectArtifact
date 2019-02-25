@@ -57,7 +57,19 @@ cv2.rectangle(final, (rectangle[0], rectangle[1]), (rectangle[0] +
 newimg = final[(rectangle[1]):(rectangle[1] + rectangle[3]),
                (rectangle[0]):(rectangle[0] + rectangle[2])]
 
-cv2.imshow("Hello", final)
+# Open blank white image
+blank_image = cv2.imread("/Users/ashwinr/Downloads/white2.jpg", 10)
+blank_image = blank_image[0:500, 0:500]
+
+border_width = (500 - len(newimg)) / 2
+border_height = (500 - len(newimg[0])) / 2
+
+# Place cropped picture onto white canvas
+for x in range(len(newimg)):
+    for y in range(len(newimg[0])):
+        blank_image[border_width + x, border_height + y] = newimg[x, y]
+
+cv2.imshow("Hello", blank_image)
 cv2.waitKey(0)
 
 
