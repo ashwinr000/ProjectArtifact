@@ -1,3 +1,3 @@
 # ProjectArtifact
 
-Good job you can read
+Archeological classification system using Keras and OpenCV
